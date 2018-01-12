@@ -20,24 +20,24 @@ namespace ConsoleApp1
             //string s = Console.ReadLine();
             //string[] sos = s.Split(' ');
             int para;
-            for (int i=0;i < args.Length; i++)
+            for (int i=0;i < args.Length; i++)// цикл для читания с args
             {
-                bool kek = true;
-                para = int.Parse(args[i]);
-                for (int j = 2; j < para; j++)
+                bool kek = true;// это как индикатор простого числа
+                para = int.Parse(args[i]);// парсим число
+                for (int j = 2; j < para; j++)// проверка на прайм
                 {
                     if (para % j == 0)
                     {
-                        kek = false;
+                        kek = false;// если фолс тогда не прайм
                         break;
                     }
                 }
-                if (kek == true)
+                if (kek == true)// если тру тогда прайм
                 {
-                    Console.WriteLine(para); 
+                    Console.WriteLine(para);// выводим
                 }
             }
-            Console.ReadKey();
+            Console.ReadKey();// это для того что бы сразу не закрывалось
         }
     }
 }
