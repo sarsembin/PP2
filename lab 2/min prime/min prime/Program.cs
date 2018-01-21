@@ -45,8 +45,13 @@ namespace maxi_and_mini_from_file
                     mini = n;
                 }
             }
+            FileStream fw = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 2\otvet.txt", FileMode.Open, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fw);
+            sw.WriteLine(mini+" ");
             fs.Close();
             sr.Close();
+            sw.Close();
+            fw.Close();
         }
         class Program
         {
