@@ -8,70 +8,70 @@ namespace ComplexNums
 {
     class Complex
     {
-        public int a,b,c,d;
-        public int sum1, sum2;
-        public Complex()
+        public int a, b;
+        public Complex(int chi,int zna)
         {
-            string fnum = Console.ReadLine();
-            string[] sos = fnum.Split(' ');
-            a = int.Parse(sos[0]);
-            b = int.Parse(sos[1]);
-            string snum = Console.ReadLine();
-            string[] sos1 = snum.Split(' ');
-            c = int.Parse(sos1[0]);
-            d = int.Parse(sos1[1]);
-
+            a = chi;
+            b = zna;
         }
-        public void swap(int a, int b)
+        static void swap(int a, int b)
         {
             int c = a;
             a = b;
             b = c;
             
         }
-        public void sum()
+        public static Complex operator +(Complex c1, Complex c2)
         {
-            int k = b;
-            int m = d;
-            a = a * m;
-            c = c * k;
-            sum1 = a + c;
-            sum2 = b * d;
+            int chis, znam;
+            znam = c1.b * c2.b;
+            chis = (c1.a * c2.b) + (c2.a * c1.b);
             bool da = false;
-            if (sum1 > sum2)
+            if (chis > znam)
             {
-                swap(sum1,sum2);
-                da = true;
+                swap(chis, znam);
             }
             int nod=1;
-            for (int i = 2; i <= sum1; i++)
+            for (int i = 2; i <= chis; i++)
             {
-                if (sum1%i==0 && sum2 % i == 0)
+                if (chis % i == 0 && znam % i == 0)
                 {
                     nod = i;
                 }
             }
-            if (da == true)
+            if(da == true)
             {
-                swap(sum1, sum2);
+                swap(chis, znam);
             }
-            sum1 = sum1 / nod;
-            sum2 = sum2 / nod;
-
+            chis = chis / nod;
+            znam = znam / nod;
+            string s = chis + "/" + znam;
+            Complex c3 = new Complex(chis, znam);
+            return c3;
         }
         public override string ToString()
         {
-            return sum1 + " " + sum2;
+            
+            return a +"/"+ b;
         }
-
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Complex co = new Complex();
-            co.sum();
-            Console.WriteLine(co);
+            int a, b, c, d;
+            string fnum = Console.ReadLine();
+            string[] sos = fnum.Split(' ');
+            a = int.Parse(sos[0]);
+            b = int.Parse(sos[1]);
+            string fnum1 = Console.ReadLine();
+            string[] sos1 = fnum1.Split(' ');
+            c = int.Parse(sos1[0]);
+            d = int.Parse(sos1[1]);
+            Complex c1 = new Complex(a,b);
+            Complex c2 = new Complex(c,d);
+            Complex c3 = c1 + c2;
+            Console.WriteLine(c3);
             Console.ReadKey();
         }
     }
