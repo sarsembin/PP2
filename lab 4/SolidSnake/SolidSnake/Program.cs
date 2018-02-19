@@ -8,38 +8,29 @@ namespace SolidSnake
 {
     class Point
     {
-        public int pos_x, pos_y;
-    }
-    class food
-    {
-        Point nyam;
-        public food()
+        int x, y;
+        public Point(int cx,int cy)
         {
-            Random rnd = new Random();
-            nyam.pos_x = rnd.Next
+            x = cx;
+            y = cy;
         }
     }
-    class field
+    class wall
     {
-        List<Point> pole;
-        char sign = '+';
-        public int x_size = 12, y_size = 12;
-        public field()
+        public List<Point> coord_wall;
+        public char stena;
+        public ConsoleColor color;
+        public wall()
         {
-            int q = 0;
-            for (int i = 0; i < x_size; i++)
-            {
-                for (int j = 0; j < y_size; j++)
-                {
-                    pole[q].pos_x = i;
-                    pole[q].pos_y = j;
-                    q++;
-                }
-            }
+            stena = '#';
+            coord_wall = new List<Point>();
+            color = ConsoleColor.White;
         }
-        public void draw()
+        public void LoadLevel(int level)
         {
-
+            coord_wall.Clear();
+            
+            string path = string.Format(@"")
         }
     }
     class Program

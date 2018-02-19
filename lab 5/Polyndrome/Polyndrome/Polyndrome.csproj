@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C939108F-88DF-4A84-939F-EB2BD9CDC99C}</ProjectGuid>
+    <ProjectGuid>{FE8E7D4C-21EE-4C32-8435-98010204BDF6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SolidSnake</RootNamespace>
-    <AssemblyName>SolidSnake</AssemblyName>
+    <RootNamespace>Polyndrome</RootNamespace>
+    <AssemblyName>Polyndrome</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

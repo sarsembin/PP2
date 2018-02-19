@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidSnake", "SolidSnake\SolidSnake.csproj", "{C939108F-88DF-4A84-939F-EB2BD9CDC99C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polyndrome", "Polyndrome\Polyndrome.csproj", "{FE8E7D4C-21EE-4C32-8435-98010204BDF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C939108F-88DF-4A84-939F-EB2BD9CDC99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C939108F-88DF-4A84-939F-EB2BD9CDC99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C939108F-88DF-4A84-939F-EB2BD9CDC99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C939108F-88DF-4A84-939F-EB2BD9CDC99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE8E7D4C-21EE-4C32-8435-98010204BDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8E7D4C-21EE-4C32-8435-98010204BDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8E7D4C-21EE-4C32-8435-98010204BDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8E7D4C-21EE-4C32-8435-98010204BDF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {58305C74-0629-4D93-808E-4418380B18BF}
+		SolutionGuid = {8BB47D72-EA94-44EC-A97C-7BD59BF0EB7E}
 	EndGlobalSection
 EndGlobal
