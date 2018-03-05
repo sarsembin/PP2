@@ -60,14 +60,11 @@ namespace SolidSnake
                     Game.food.SetRandomPosition(Game.wall.shirina - 2, Game.wall.visota - 2);
                     Game.score++;
                 }
-                if (Game.snake.collision_wall() == true)
+                if (Game.snake.collision_wall() || Game.snake.collision_snake())
                 {
                     Game.GameOver = true;
                 }
-                if (Game.snake.collision_snake() == true)
-                {
-                    Game.GameOver = true;
-                }
+                
                 if (Game.score!=0 && Game.score % 10 == 0)
                 {
                     Game.level = 1;
@@ -93,20 +90,7 @@ namespace SolidSnake
             switch (butt.Key)
             {
                 case ConsoleKey.L:
-                    FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save.xml", FileMode.Open, FileAccess.Read);
-                    XmlSerializer xs = new XmlSerializer(typeof(Game));
-                    try
-                    {
-                        main_g = xs.Deserialize(fs) as Game;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                    finally
-                    {
-                        fs.Close();
-                    }
+                    Game.load();
                     break;
             }
             Game.Init();
@@ -156,23 +140,12 @@ namespace SolidSnake
                         leave = true;
                         break;
                     case ConsoleKey.S:
-                        FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save.xml", FileMode.Create, FileAccess.Write);
-                        XmlSerializer xs = new XmlSerializer(typeof(Game));
-                        try
-                        {
-                            xs.Serialize(fs, main_g);
-                        }
-                        catch(Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                        finally
-                        {
-                            fs.Close();
-                        }
+
+                        Game.save();
                         Console.SetCursorPosition(0, Game.wall.visota + 5);
                         Console.WriteLine("Game Successfully Saved");
                         Console.WriteLine("Press Any Key To Continue");
+                        // dlya pauzy
                         saved = true;
                         break;
                 }

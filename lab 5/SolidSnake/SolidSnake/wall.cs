@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SolidSnake
 {
+    [Serializable]
     public class wall
     {
         public List<Point> coord_wall;
@@ -51,6 +53,40 @@ namespace SolidSnake
             {
                 Console.SetCursorPosition(p.x, p.y);
                 Console.Write(stena);
+            }
+        }
+        public static void save()
+        {
+            FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save_wall.xml", FileMode.Create, FileAccess.Write);
+            XmlSerializer xs = new XmlSerializer(typeof(wall));
+            try
+            {
+                xs.Serialize(fs, Game.wall);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+        public static void load()
+        {
+            FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save_wall.xml", FileMode.Open, FileAccess.Read);
+            XmlSerializer xs = new XmlSerializer(typeof(wall));
+            try
+            {
+                Game.wall = xs.Deserialize(fs) as wall;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
             }
         }
     }

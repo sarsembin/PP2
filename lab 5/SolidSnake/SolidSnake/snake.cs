@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SolidSnake
 {
+    [Serializable]
     public class snake
     {
         public List<Point> body;
@@ -30,6 +33,8 @@ namespace SolidSnake
             }
             body[0].x = body[0].x + dx;
             body[0].y = body[0].y + dy;
+
+            
         }
         public bool CanEat()
         {
@@ -88,17 +93,49 @@ namespace SolidSnake
             {
                 if (i == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(p.x, p.y);
-                    Console.Write(myaso);
+                    Console.ForegroundColor = ConsoleColor.Red;                   
                 }
                 else
                 {
                     Console.ForegroundColor = color;
-                    Console.SetCursorPosition(p.x, p.y);
-                    Console.Write(myaso);
                 }
+                Console.SetCursorPosition(p.x, p.y);
+                Console.Write(myaso);
                 i++;
+            }
+        }
+        public static void save()
+        {
+            FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save_snake.xml", FileMode.Create, FileAccess.Write);
+            XmlSerializer xs = new XmlSerializer(typeof(snake));
+            try
+            {
+                xs.Serialize(fs, Game.snake);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+        public static void load()
+        {
+            FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save_snake.xml", FileMode.Open, FileAccess.Read);
+            XmlSerializer xs = new XmlSerializer(typeof(snake));
+            try
+            {
+                Game.snake = xs.Deserialize(fs) as snake;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
             }
         }
     }

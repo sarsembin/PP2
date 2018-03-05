@@ -83,7 +83,23 @@ namespace far
                             string data = sr.ReadToEnd();
                             Console.Clear();
                             Console.WriteLine(data);
-                            Console.ReadKey();
+                            bool da = true;
+                            while (da == true)
+                            {
+                                Console.Clear();
+                                Console.WriteLine(data);
+                                ConsoleKeyInfo butt = Console.ReadKey();
+                                switch (butt.Key)
+                                {
+                                    case ConsoleKey.Q:
+                                        da = false;
+                                        break;
+                                }
+                            }
+
+                            ConsoleKeyInfo bb = Console.ReadKey();
+                            while (bb.Key != ConsoleKey.Q)
+                                bb = Console.ReadKey();
                             
                         }
                         break;

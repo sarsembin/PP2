@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<snake xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <body>
+    <Point>
+      <x>18</x>
+      <y>10</y>
+    </Point>
+    <Point>
+      <x>19</x>
+      <y>10</y>
+    </Point>
+    <Point>
+      <x>20</x>
+      <y>10</y>
+    </Point>
+    <Point>
+      <x>21</x>
+      <y>10</y>
+    </Point>
+    <Point>
+      <x>22</x>
+      <y>10</y>
+    </Point>
+  </body>
+  <color>Green</color>
+  <myaso>111</myaso>
+</snake>

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SolidSnake
 {
+    [Serializable]
     public class Food
     {
         public Point location;
@@ -53,6 +56,40 @@ namespace SolidSnake
             Console.ForegroundColor = color;
             Console.SetCursorPosition(location.x, location.y);
             Console.Write(sign);
+        }
+        public static void save()
+        {
+            FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save_food.xml", FileMode.Create, FileAccess.Write);
+            XmlSerializer xs = new XmlSerializer(typeof(Food));
+            try
+            {
+                xs.Serialize(fs, Game.food);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
+        }
+        public static void load()
+        {
+            FileStream fs = new FileStream(@"C:\Users\Daur\Desktop\c# kbtu pp 2\lab 5\SolidSnake\last_save_food.xml", FileMode.Open, FileAccess.Read);
+            XmlSerializer xs = new XmlSerializer(typeof(Food));
+            try
+            {
+                Game.food = xs.Deserialize(fs) as Food;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
         }
     }
 }

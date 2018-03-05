@@ -17,12 +17,7 @@ namespace SolidSnake
         public static int level;
         public static Point window_s;
 
-        public Game()
-        {
-            score = 0;
-            level = 0;
-            snake = new snake();
-        }
+        
         public static void Init()
         {
             GameOver = false;
@@ -31,6 +26,9 @@ namespace SolidSnake
             Console.SetWindowSize(window_s.x, window_s.y);
             food = new Food();
             wall = new wall();
+            snake = new snake();
+            score = 0;
+            level = 0;
         }
         public static  void draw_comments()
         {
@@ -47,6 +45,18 @@ namespace SolidSnake
             food.Draw();
             snake.Draw();
             wall.Draw();
+        }
+        public static void save()
+        {
+            snake.save();
+            Food.save();
+            wall.save();
+        }
+        public static void load()
+        {
+            snake.load();
+            wall.load();
+            Food.load();
         }
     }
 }
