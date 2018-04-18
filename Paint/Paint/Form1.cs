@@ -149,18 +149,18 @@ namespace Paint
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
+           
                 if (tools == Tool.Path)
                 {
                     for (int i =0; i < path_p.Count - 1; i++)
                     {
                         path.AddLine(path_p[i], path_p[i + 1]);
+                        pictureBox1.Refresh();
                     }
                     
                 }
                 pictureBox1.Refresh();
-            }
+           
             switch (tools)
             {
                 case Tool.Fill:
@@ -197,9 +197,24 @@ namespace Paint
                     pictureBox1.Refresh();
                     break;
                 case Tool.Path:
-                    path_p.Add(new Point(e.X, e.Y));
+                    prev = e.Location;
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        cur = e.Location;
+                        path_p.Add(new Point(e.X, e.Y));
+                        path.AddLine(prev, cur);
+                        pictureBox1.Refresh();
+                        /*for (int i = 0; i < path_p.Count - 1; i++)
+                        {
+                            path.AddLine(path_p[i], path_p[i + 1]);
+                            pictureBox1.Refresh();
+                        }*/
+                    }
                     break;
             }
+                    
+                    
+            
         }
 
         
