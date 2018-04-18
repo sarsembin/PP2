@@ -53,7 +53,7 @@ namespace Asteroids
             seed_ship.X = this.Width / 2;
             seed_ship.Y = this.Height - (this.Height / 4);
 
-            l.Text = "Press Start To Begin";
+            l.Text = "Press Any Key To Begin";
             Controls.Add(l);
 
 
